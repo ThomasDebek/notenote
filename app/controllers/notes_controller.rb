@@ -4,7 +4,8 @@ class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   def index
-    @notes = Note.all
+   # @notes = Note.all.order("created_at ASC")
+     @notes = Note.all.where(user_id: current_user)
   end
 
   def new
@@ -56,5 +57,3 @@ class NotesController < ApplicationController
 
 end
 
-
-29:40
